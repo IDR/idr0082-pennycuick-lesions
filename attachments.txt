@@ -1,0 +1,4 @@
+/uod/idr/filesets/idr0082-pennycuick-lesions/20200417-ftp/S1_HandE.ndpi.ndpa
+/uod/idr/filesets/idr0082-pennycuick-lesions/20200417-ftp/S2_HandE.ndpi.ndpa
+/uod/idr/filesets/idr0082-pennycuick-lesions/20200417-ftp/S3_HandE.ndpi.ndpa
+
