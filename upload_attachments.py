@@ -2,11 +2,14 @@
 
 # This has to run as user omero-server.
 # Assumes that omero-upload was installed on the server.
+# git clone https://gitlab.com/idr/idr0082-pennycuick-lesions.git
+# cd idr0082....
+# cp attachments.txt /tmp
+# cp upload_attachments.py /tmp
+# chmod +x /tmp/upload_attachments.py
 # sudo su omero-server
 # cd /tmp
 # . /opt/omero/server/venv3/bin/activate
-# cp xyz/upload_attachments.py .
-# cp xyz/attachments.txt .
 # python upload_attachments.py
 
 
