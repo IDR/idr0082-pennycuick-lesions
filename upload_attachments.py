@@ -7,7 +7,7 @@
 # . /opt/omero/server/venv3/bin/activate
 # cp xyz/upload_attachments.py .
 # cp xyz/attachments.txt .
-# python upload_attachments.poy
+# python upload_attachments.py
 
 
 import omero.clients
