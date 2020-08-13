@@ -1,0 +1,117 @@
+---
+name: idr0082-pennycuick-lesions/experimentA
+version: 1
+
+defaults:
+  include: no
+  type: string
+  includeclient: yes
+  visible: yes
+  omitempty: yes
+
+columns:
+
+  - name: Characteristics [Organism Part]
+    clientname: Organism Part
+    include: yes
+
+  - name: Characteristics [Tissue Source]
+    clientname: Tissue Source
+    include: yes
+
+  - name: Characteristics [Phenotype Outcome]
+    clientname: Phenotype Outcome
+    include: yes
+
+  - name: Characteristics [Sex]
+    clientname: Sex
+    include: yes
+
+  - name: Characteristics [Smoking Status]
+    clientname: Smoking Status
+    include: yes
+
+  - name: Characteristics [Pack Years]
+    clientname: Pack Years
+    include: yes
+
+  - name: Characteristics [Previous Lung Cancer]
+    clientname: Previous Lung Cancer
+    include: yes
+
+  - name: Comment [Gene Expression CIS Region]
+    clientname: Gene Expression CIS Region
+    include: yes
+
+  - name: Comment [Gene Expression Stromal Region]
+    clientname: Gene Expression Stromal Region
+    include: yes
+
+  - name: Comment [Methylation]
+    clientname: Methylation
+    include: yes
+
+  - name: Comment [Whole Genome Sequencing]
+    clientname: Whole Genome Sequencing
+    include: yes
+
+  - name: CIS - Lymphocytes
+    clientname: CIS - Lymphocytes
+    include: yes
+
+  - name: CIS - Stromals
+    clientname: CIS - Stromals
+    include: yes
+
+  - name: CIS - Tumors
+    clientname: CIS - Tumors
+    include: yes
+
+  - name: CIS - Other Cells
+    clientname: CIS - Other Cells
+    include: yes
+
+  - name: CIS - Area
+    clientname: CIS - Area
+    include: yes
+
+  - name: Stroma - Lymphocytes
+    clientname: Stroma - Lymphocytes
+    include: yes
+
+  - name: Stroma - Stromals
+    clientname: Stroma - Stromals
+    include: yes
+
+  - name: Stroma - Tumors
+    clientname: Stroma - Tumors
+    include: yes
+
+  - name: Stroma - Other Cells
+    clientname: Stroma - Other Cells
+    include: yes
+
+  - name: Stroma - Area
+    clientname: Stroma - Area
+    include: yes
+
+
+
+  ######################################################################
+  # mapr groups
+  ######################################################################
+
+  - group:
+      namespace: openmicroscopy.org/mapr/organism
+      columns:
+        - name: Characteristics [Organism]
+          clientname: Organism
+          include: yes
+
+
+advanced:
+  ignore_missing_primary_key: yes
+  primary_group_keys:
+    - namespace: openmicroscopy.org/mapr/organism
+      keys:
+        - Organism
