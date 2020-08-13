@@ -21,7 +21,7 @@
 
 
 """
-This script creates a new dataset and links all images with a given name to it.
+This script goes through the Dataset with name "Lung Carcinoma" and sorts out the images from there and unlinks them and relinks them to two new Datasets.
 """
 
 import argparse
@@ -30,49 +30,68 @@ import omero.cli
 import omero.clients
 from omero.gateway import BlitzGateway
 
-project_id = 1052
+project_id = 1807
 
-def run(project_id):
-	try:
-		conn.connect()
-    	for dataset in project.linkedDatasetList():
-			if dataset.getName().getValue() == 'goodname'
-				for image in dataset.linkedImageList():
-					image_name_space = image.getName().getValue().split(' ')
-					length = len(image_name_space)
-					image_ending_right = (image_name_space[length-1] == '[0]')
-					image_name_dot = image.getName().getValue().split('.')
-					image_matches_attachment = (att_name_parts[0] == image_name_dot[0])
-					if (image_ending_right and image_matches_attachment):
-						print("Linked dataset %s to image %s" %
-								(image.getName().getValue()))
+def sortout(project, conn):
+    for dataset in project.linkedDatasetList():
+        if (dataset.getName().getValue() == 'Lung Carcinoma'):
+            for image in dataset.linkedImageList():
+                image_name_space = image.getName().getValue().split(' ')
+                length = len(image_name_space)
+                image_ending_overview = (image_name_space[length-1] == 'image]')
+                print (image_name_space[length-1])
+                image_ending_mask = (image_name_space[length-2] == 'mask')
+                if (image_ending_overview):
+                    if (image_ending_mask):
+                        print("image %s goes to mask dataset" %
+                                (image.getName().getValue()))
+                        dataset_name = 'Lung Carcinoma overview mask'
+                        unlink(image)
+                        link_dataset(project, dataset_name, image)
+                    else:
+                        print("image %s goes to overview dataset" %
+                                (image.getName().getValue()))
+                        dataset_name = 'Lung Carcinoma overview'
+                        unlink(image)
+                        link_dataset(project, dataset_name, image)
 
-		dataset = omero.model.DatasetI()
-		dataset.setName(omero.rtypes.rstring(dataset_name))
-		dataset = conn.getUpdateService().saveAndReturnObject(dataset)
-		dataset_id = dataset.getId().getValue()
-		print(username, dataset_id)
+            # dataset = omero.model.DatasetI()
+            # dataset.setName(omero.rtypes.rstring(dataset_name))
+            # dataset = conn.getUpdateService().saveAndReturnObject(dataset)
+            # dataset_id = dataset.getId().getValue()
 
-		link = omero.model.DatasetImageLinkI()
-		link.setParent(dataset)
-		link.setChild(omero.model.ImageI(image_id, False))
-		conn.getUpdateService().saveObject(link)
-	except Exception as exc:
-		print("Error while linking images: %s" % str(exc))
-	finally:
-		conn.close()
+def unlink(image):
+    params = omero.sys.ParametersI()
+    params.add('id', image.getId())
+    query = "from DatasetImageLink as l where l.child.id=:id"
+    query_service = conn.getQueryService()
+    link = query_service.findAllByQuery(query, params,
+                                                  conn.SERVICE_OPTS)
+    print (link[0].getId().getValue())
+    links_ids = [link[0].getId().getValue()]
+    conn.deleteObjects('DatasetImageLink', links_ids, wait=True)
 
 
-def main(args):
-	cs = conn.getContainerService()
-	param = omero.sys.ParametersI().leaves()
-	project = cs.loadContainerHierarchy("Project", [project_id], param)[0]
-	run
+def link_dataset(project, dataset_name, image):
+    for dataset in project.linkedDatasetList():
+        if (dataset.getName().getValue() == dataset_name):
+            print ("linking")
+            link = omero.model.DatasetImageLinkI()
+            link.setParent(omero.model.DatasetI(dataset.getId(), False))
+            link.setChild(omero.model.ImageI(image.getId(), False))
+            conn.getUpdateService().saveObject(link)
+
+
+
+def main(conn):
+    cs = conn.getContainerService()
+    param = omero.sys.ParametersI().leaves()
+    project = cs.loadContainerHierarchy("Project", [project_id], param)[0]
+    sortout(project, conn)
+    conn.close()
 
 
 if __name__ == '__main__':
-    import sys
-    main(sys.argv[1:])
-	with omero.cli.cli_login() as c:
+    with omero.cli.cli_login() as c:
         conn = omero.gateway.BlitzGateway(client_obj=c.get_client())
         main(conn)
