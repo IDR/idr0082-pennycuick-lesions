@@ -45,13 +45,13 @@ def sortout(project, conn):
                     if (image_ending_mask):
                         print("image %s goes to mask dataset" %
                                 (image.getName().getValue()))
-                        dataset_name = 'Lung Carcinoma overview mask'
+                        dataset_name = 'Lung Carcinoma Overview Mask'
                         unlink(image)
                         link_dataset(project, dataset_name, image)
                     else:
                         print("image %s goes to overview dataset" %
                                 (image.getName().getValue()))
-                        dataset_name = 'Lung Carcinoma overview'
+                        dataset_name = 'Lung Carcinoma Overview'
                         unlink(image)
                         link_dataset(project, dataset_name, image)
 
