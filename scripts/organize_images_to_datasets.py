@@ -30,7 +30,7 @@ import omero.cli
 import omero.clients
 from omero.gateway import BlitzGateway
 
-project_id = 1807
+project_id = 1251
 dataset_names = ['Lung Carcinoma Overview', 'Lung Carcinoma Overview Mask']
 
 def sortout(project, conn):
