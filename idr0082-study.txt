@@ -1,0 +1,102 @@
+# FILL IN AS MUCH INFORMATION AS YOU CAN.  HINTS HAVE BEEN PUT IN SOME FIELDS AFTER THE HASH # SYMBOL. REPLACE THE HINT WITH TEXT WHERE APPROPRIATE.								
+								
+# STUDY DESCRIPTION SECTION								
+# Section with generic information about the study including title, description, publication details (if applicable) and contact details								
+								
+Comment[IDR Study Accession]	idr0082							
+Study Title	Immune surveillance in clinical regression of pre-invasive squamous cell lung cancer							
+Study Type	histology							
+Study Type Term Source REF								
+Study Type Term Accession								
+Study Description	Before squamous cell lung cancer develops, pre-cancerous lesions can be found in the airways. From longitudinal monitoring, we know that only half of such lesions become cancer, whereas a third spontaneously regress. While recent studies have described the presence of an active immune response in high-grade lesions, the mechanisms underpinning clinical regression of pre-cancerous lesions remain unknown. Here, we show that host immune surveillance is strongly implicated in lesion regression. Using bronchoscopic biopsies from human subjects, we find that regressive carcinoma in-situ lesions harbour more infiltrating immune cells than those that progress to cancer. Moreover, molecular profiling of these lesions identifies potential immune escape mechanisms specifically in those that progress to cancer: antigen presentation is impaired by genomic and epigenetic changes, CCL27/CCR10 signalling is overactive, and the immunomodulator TNFSF9 is downregulated. Changes appear intrinsic to the CIS lesions as the adjacent stroma of progressive and regressive lesions are transcriptomically similar.						
+Study Key Words	preinvasive	lung cancer	carcinoma in-situ							
+Study Organism	Homo sapiens							
+Study Organism Term Source REF	NCBITaxon							
+Study Organism Term Accession	9606							
+Study Experiments Number	1							
+Study External URL		
+Study BioImage Archive Accession					
+Study Public Release Date						
+								
+# Study Publication								
+Study PubMed ID	32690541							
+Study Publication Title	Immune surveillance in clinical regression of pre-invasive squamous cell lung cancer							
+Study Author List	Pennycuick A, Teixeira VH, AbdulJabbar K, Raza SEA, Lund T, Akarca A, Rosenthal R, Pipinikas CP, Lee-Six H, Chandrasekharan DP, Hynds RE, Gowers KHC, Henry JY, Denais C, Falzon M, Antoniou S, Durrenberger PF, Furness A, Carroll B, Thakrar RM, George PJ, Marafioti T, Swanton C, Thirlwell C, Campbell PJ, Yuan Y, Quezada SA, McGranahan N, Janes SM							
+Study PMC ID							
+Study DOI	https://doi.org/10.1158/2159-8290.CD-19-1366							
+								
+# Study Contacts								
+Study Person Last Name	Pennycuick							
+Study Person First Name	Adam							
+Study Person Email	a.pennycuick@ucl.ac.uk							
+Study Person Address	UCL Respiratory, 5 University Street, London, WC1E 6JF						
+Study Person ORCID	0000-0001-5836-0250							
+Study Person Roles	submitter							
+								
+# Study License and Data DOI								
+Study License	CC-BY 4.0							
+Study License URL	https://creativecommons.org/licenses/by/4.0/							
+Study Copyright	Pennycuick et al							
+Study Data Publisher	University of Dundee							
+Study Data DOI								
+								
+Term Source Name	NCBITaxon	EFO	CMPO	FBbi				
+Term Source URI	http://purl.obolibrary.org/obo/	http://www.ebi.ac.uk/efo/	http://www.ebi.ac.uk/cmpo/	http://purl.obolibrary.org/obo/				
+								
+								
+# EXPERIMENT SECTION								
+# Experiment Section containing all information relative to each experiment in the study including materials used, protocols names and description, phenotype names and description. For multiple experiments this section should be repeated.  Copy and paste the whole section below and fill out for the next experiment							
+								
+Experiment Number	1							
+Comment[IDR Experiment Name]	idr0082-pennycuick-lesions/experimentA		
+
+Experiment Sample Type	tissue
+					
+Experiment Description	H&E Imaging of 112 lung carcinoma in-situ lesions, with CIS and stromal regions annotated, and quantification of infiltrating lymphocytes.						
+Experiment Size	5D Images: 	Average Image Dimension (XYZCT):	Total Tb: 	# fill in any values you know				
+Experiment Example Images								
+Experiment Imaging Method	bright-field microscopy							
+Experiment Imaging Method Term Source REF	Fbbi							
+Experiment Imaging Method Term Accession	FBbi_00000243						
+Experiment Comments	Whole Slide Imaging (Nanozoomer).  For several lesions, molecular profiling has been performed on laser-captured CIS tissue from serial sections. These data are available in GEO (gene expression and methylation) and EGA (whole genome sequencing). Accession numbers can be found in the assay file. 				
+								
+# assay files								
+Experiment Assay File	assay_file.txt							
+Experiment Assay File Format	tab-delimited text							
+Assay Experimental Conditions	Progressive vs regressive carcinoma in situ lesions							
+Assay Experimental Conditions Term Source REF								
+Assay Experimental Conditions Term Accession								
+Quality Control Description								
+								
+# Protocols								
+Protocol Name	growth protocol	treatment protocol	image acquisition and feature extraction protocol	data analysis protocol				
+Protocol Type	growth protocol	treatment protocol	image acquisition and feature extraction protocol	data analysis protocol				
+Protocol Type Term Source REF	EFO	EFO						
+Protocol Type Term Accession	EFO_0003789	EFO_0003969						
+Protocol Description	Bronchoscopic biopsy samples fixed in FFPE	H&E staining performed	Images acquired using Nanozoomer	Multiple assays performed; data presented here relates to infiltrating lymphocyte quantification from H&E images using machine learning.				
+								
+# Phenotypes								
+Phenotype Name	Outcome	Sex	Smoking Status	Pack Years	Previous lung cancer			
+Phenotype Description	Progressive samples developed cancer on repeat biopsy of the same site 4-6 months later. Regressive samples showed normal epithelium or low-grade dysplasia at the same site on subsequent biopsy 4-6 months later.	Male/Female	"Current, former or never smoker (at time of biopsy)"	Number of years smoking 20 cigarettes per day	Whether the patient has a history of lung cancer			
+Phenotype Score Type	Manual	Manual	Manual	Manual	Manual			
+Phenotype Term Source REF	CMPO							
+Phenotype Term Name								
+Phenotype Term Accession				
+								
+								
+# Feature Level Data Files (give individual file details unless there is one file per well)								
+Feature Level Data File Name								
+Feature Level Data File Format								
+Feature Level Data File Description								
+Feature Level Data Column Name								
+Feature Level Data Column Description								
+								
+#  Processed Data Files 								
+Processed Data File Name	processed_file.txt							
+Processed Data File Format	tab-delimited text							
+Processed Data File Description	Quantification of lymphocytes, stromal cells, malignant cells and other cells within the CIS and stromal regions of each slide.							
+Processed Data Column Name	Source Name	FileName	site	lymphocytes	stromals	tumors	othercells	area
+Processed Data Column Type	location	location	location	data	data	data	data	data
+Processed Data Column Annotation Level	image	image	image	image	image
+Processed Data Column Description	Whether the result relates to the CIS region or neighbouring stromal region	Number of lymphocytes identified	Number of stromal cells identified	Number of malignant cells identified	Number of other cells identified	Area analysed (referring to the CIS or stromal region, not the whole slide)
+Processed Data Column Link To Assay File	Source Name				
